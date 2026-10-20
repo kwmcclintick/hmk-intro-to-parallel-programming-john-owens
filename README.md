@@ -19,7 +19,13 @@ three stages: 1) two-kernel min/max binary tree reduce using shared block SRAM, 
 
 ## Homework 4: red eye removal
 
-work in progress
+three stages, in a loop:
+
+1) histogram of bits using 4-wide radix width and 4-wide coarsening to get how many items have one of 16 bit combos across each block
+2) single block, single stage hillis steele exclusive scan to find out how many positions each block will get for each index
+3) scatter using digit and rank to put values and positions in their place
+
+after each looper iteration, input and output are swapped, histograms are zeroed out, and we look at the next 4 of the 32 bits.
 
 ## Homework 5: TODO
 
